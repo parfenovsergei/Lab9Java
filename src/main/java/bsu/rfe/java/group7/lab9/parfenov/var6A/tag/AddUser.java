@@ -1,8 +1,8 @@
 package bsu.rfe.java.group7.lab9.parfenov.var6A.tag;
 
-import bsu.rfe.java.group8.lab9.Yury.varA4.entity.User;
-import bsu.rfe.java.group8.lab9.Yury.varA4.entity.UserList;
-import bsu.rfe.java.group8.lab9.Yury.varA4.entity.UserListHelper;
+import bsu.rfe.java.group7.lab9.parfenov.var6A.entity.User;
+import bsu.rfe.java.group7.lab9.parfenov.var6A.entity.UserList;
+import bsu.rfe.java.group7.lab9.parfenov.var6A.entity.UserListHelper;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
