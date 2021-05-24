@@ -1,13 +1,35 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="ad" uri="http://lab9.by/tags"%>
+<%@taglib prefix="my" tagdir="/WEB-INF/tags"%>
+
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Main page</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<jsp:include page="/static/header.jsp"></jsp:include>
+<h1>Main page</h1>
+<my:layout2Columns leftColumnWidth="68%" rightColumnWidth="28%">
+		<jsp:attribute name="leftColumnBody">
+<ad:getAds range="all" var="adListing" sort="${sessionScope.sort}" dir="${sessionScope.dir}" />
+<my:adListing adListing="${adListing}" editMode="false" />
+	</jsp:attribute>
+    <jsp:attribute name="rightColumnBody">
+<my:errorMessage />
+<my:loginForm>
+<jsp:attribute name="processor">
+<c:url value="/doLogin.jsp" />
+</jsp:attribute>
+</my:loginForm>
+<my:registerButton>
+<jsp:attribute name="processor">
+<c:url value="/register.jsp" />
+</jsp:attribute>
+</my:registerButton>
+</jsp:attribute>
+</my:layout2Columns>
+<%@ include file="/static/footer.jsp"%>
 </body>
 </html>
